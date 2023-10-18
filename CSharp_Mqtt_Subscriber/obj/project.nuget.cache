@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OAL4fqY57xkedEGArQEx4ybv2Ip4ocm/of5j7outd5Ye1H0DIauJEcIBChoPhEDuhI8LYT1PRgnELJwpeNZV4w==",
+  "dgSpecHash": "K+vHsx/W3lufpq2094SZHsggni4ftt8Zn5xsVxh0S57LGY1W+d2mL3ewTMr+NSREOjdSwAbAWNHWDlFCV9Ctrg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nicol\\Desktop\\git\\Csharp_mqtt_subscriber\\CSharp_Mqtt_Subscriber\\CSharp_Mqtt_Subscriber.csproj",
+  "projectFilePath": "C:\\Users\\nicol\\Documents\\gitProjects\\Csharp_mqtt_subscriber\\CSharp_Mqtt_Subscriber\\CSharp_Mqtt_Subscriber.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nicol\\.nuget\\packages\\mqttnet\\4.3.1.873\\mqttnet.4.3.1.873.nupkg.sha512"
   ],

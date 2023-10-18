@@ -31,20 +31,35 @@ var connectResult = await mqttClient.ConnectAsync(options);
 
 if (connectResult.ResultCode == MqttClientConnectResultCode.Success)
 {
-  Console.WriteLine("Connected to MQTT broker successfully.");
+    Console.WriteLine("Connected to MQTT broker successfully.");
 
-  // Subscribe to a topic
-  await mqttClient.SubscribeAsync(topic);
+    // Subscribe to a topic
+    await mqttClient.SubscribeAsync(topic);
 
-  // Callback function when a message is received
-  mqttClient.ApplicationMessageReceivedAsync += e =>
-  {
+    // Callback function when a message is received
+    mqttClient.ApplicationMessageReceivedAsync += async e =>
+    {
+        // Decode the received message
+        string receivedMessage = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
 
-    // Console.WriteLine($"Received message: {Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment)}");
-    Console.WriteLine($"Received message: {Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment)}");
-    Console.WriteLine();
-    return Task.CompletedTask;
-  };
-};
+        Console.WriteLine($"Received message: {receivedMessage}");
+        Console.WriteLine();
+
+        // Define the file path
+        string filePath = "./receivedData.json";
+
+        try
+        {
+            // Save the received message to a JSON file
+            await File.WriteAllTextAsync(filePath, receivedMessage);
+            Console.WriteLine($"Saved message to: {filePath}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Failed to save message to file. Error: {ex.Message}");
+        }
+    };
+}
+
 
 Console.ReadLine();
